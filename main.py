@@ -11,11 +11,9 @@ auth = firebase.auth()
 
 app = Flask(__name__)
 
-
 @app.route('/')
 def index():
   return jsonify({"response": "Backend Oxe Learning"}), 201
-
 
 # Endpoint para cadastro de usuário
 @app.route('/signUp', methods=['POST'])
@@ -39,7 +37,6 @@ def signup():
   else:
     return jsonify({"message": "User ou Password não enviados"}), 400
 
-
 # Endpoint para login
 @app.route('/login', methods=['POST'])
 def login():
@@ -62,7 +59,6 @@ def login():
         return jsonify({'message': f"Erro desconhecido: {e}"}), 500
   else:
     return jsonify({"message": "User ou Password não enviados"}), 400
-
 
 # Endpoint para upload de arquivos
 @app.route('/uploadFile', methods=['POST'])
@@ -94,7 +90,6 @@ def upload_file():
     return jsonify(
         {"message":
          f"Erro ao realizar o Upload do arquivo: {response.text}"}), 500
-
 
 # Endpoint para interação com o arquivo
 @app.route('/chatMessage', methods=['POST'])
@@ -132,7 +127,6 @@ def chat_message():
   else:
     return jsonify({"message":
                     "mensagem ou sourceId do arquivo não enviados"}), 400
-
 
 # Inicia a API
 app.run(host='0.0.0.0')
