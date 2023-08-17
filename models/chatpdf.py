@@ -12,7 +12,8 @@ def upload_file_chatpdf(files):
   #Requisição para Upload do Arquivo no Chat PDF
   response = requests.post('https://api.chatpdf.com/v1/sources/add-file',
                            headers=headers,
-                           files=files)
+                           files=files,
+                          timeout=3000)
 
   return response
 
@@ -44,6 +45,6 @@ def get_response_chatpdf(sourceId, message, assistant):
   response = requests.post('https://api.chatpdf.com/v1/chats/message',
                              headers=headers,
                              json=data)
-
+  print(response)
   return response
   
