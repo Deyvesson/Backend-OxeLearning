@@ -3,3 +3,4 @@ __pycache__
 .replit
 replit.nix
 pyproject.toml
+models/oxelearning-firebase-adminsdk.json

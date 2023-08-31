@@ -31,12 +31,12 @@ def get_response_chatpdf(sourceId, message, assistant):
     "sourceId": sourceId,
     "messages": [
       {
-        "role": "user",
-        "content": message,
-      },
-      {
         "role": "assistant",
         "content": assistant
+      },
+      {
+        "role": "user",
+        "content": message,
       }
     ]
   }
@@ -45,6 +45,6 @@ def get_response_chatpdf(sourceId, message, assistant):
   response = requests.post('https://api.chatpdf.com/v1/chats/message',
                              headers=headers,
                              json=data)
-  print(response)
+
   return response
   

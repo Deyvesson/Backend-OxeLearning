@@ -3,6 +3,7 @@ import os
 import pyrebase
 
 def initialize_firebase():
+  
     firebaseConfig = {
     "apiKey": os.environ['API_KEY'],
     "authDomain": os.environ['AUTH_DOMAIN'],
@@ -14,3 +15,4 @@ def initialize_firebase():
     }
 
     return pyrebase.initialize_app(firebaseConfig)
+

@@ -1,15 +1,10 @@
-from models.firebase import initialize_firebase
+import firebase_admin
+from firebase_admin import credentials, auth
 
-#iniciando conexão com o firebase
-firebase = initialize_firebase()
-db = firebase.database()
+cred = credentials.Certificate("./oxelearning-firebase-adminsdk.json")
+firebase_admin.initialize_app(cred)
 
+user = auth.get_user('4JkEX0gucEVAL1IrmbrpgnDbWL72')
+print(user.email)
+print('Successfully fetched user data: {0}'.format(user.uid))
 
-a = db.order_by_child("sourceID").equal_to('src_Zdd8jxt9mgyenpQygblcz').get()
-#print(a[0].key())
-try:
-  print(a[0].key())
-  db.child(a[0].key()).remove()
-  print('ok')
-except:
-  print('NOK')
